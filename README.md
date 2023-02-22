@@ -1,34 +1,15 @@
 
-# Getting Started with APIMATIC Calculator
-
-## Introduction
-
-Simple calculator API hosted on APIMATIC
+# Getting Started with PackagePublishing.Web
 
 ## Install the Package
 
-Install the SDK by adding the following dependency in your project's pom.xml file:
+Run the following command from your project directory to install the package from npm:
 
-```xml
-<dependency>
-  <groupId>io.github.shield-jaguar</groupId>
-  <artifactId>test-calculator-sdk</artifactId>
-  <version>2.0.8</version>
-</dependency>
+```ts
+npm install apimatic_calculator_dev@1.0.7
 ```
 
-You can also view the package at:
-https://mvnrepository.com/artifact/io.github.shield-jaguar/test-calculator-sdk/2.0.8
-
-## Test the SDK
-
-The generated code and the server can be tested using automatically generated test cases.
-JUnit is used as the testing framework and test runner.
-
-In Eclipse, for running the tests do the following:
-
-1. Select the project APIMATICCalculatorLib from the package explorer.
-2. Select `Run -> Run as -> JUnit Test` or use `Alt + Shift + X` followed by `T` to run the Tests.
+For additional package details, see the [Npm page for the apimatic_calculator_dev@1.0.7  npm](https://www.npmjs.com/package/apimatic_calculator_dev/v/1.0.7).
 
 ## Initialize the API Client
 
@@ -38,35 +19,67 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `environment` | Environment | The API environment. <br> **Default: `Environment.PRODUCTION`** |
-| `httpClientConfig` | [`ReadonlyHttpClientConfiguration`](doc/http-client-configuration.md) | Http Client Configuration instance. |
+| `environment` | Environment | The API environment. <br> **Default: `Environment.Production`** |
+| `timeout` | `number` | Timeout for API calls.<br>*Default*: `0` |
+| `httpClientOptions` | `Partial<HttpClientOptions>` | Stable configurable http client options. |
+| `unstableHttpClientOptions` | `any` | Unstable configurable http client options. |
+
+### HttpClientOptions
+
+| Parameter | Type | Description |
+|  --- | --- | --- |
+| `timeout` | `number` | Timeout in milliseconds. |
+| `httpAgent` | `any` | Custom http agent to be used when performing http requests. |
+| `httpsAgent` | `any` | Custom https agent to be used when performing http requests. |
+| `retryConfig` | `Partial<RetryConfiguration>` | Configurations to retry requests. |
+
+### RetryConfiguration
+
+| Parameter | Type | Description |
+|  --- | --- | --- |
+| `maxNumberOfRetries` | `number` | Maximum number of retries. <br> *Default*: `0` |
+| `retryOnTimeout` | `boolean` | Whether to retry on request timeout. <br> *Default*: `true` |
+| `retryInterval` | `number` | Interval before next retry. Used in calculation of wait time for next request in case of failure. <br> *Default*: `1` |
+| `maximumRetryWaitTime` | `number` | Overall wait time for the requests getting retried. <br> *Default*: `0` |
+| `backoffFactor` | `number` | Used in calculation of wait time for next request in case of failure. <br> *Default*: `2` |
+| `httpStatusCodesToRetry` | `number[]` | Http status codes to retry against. <br> *Default*: `[408, 413, 429, 500, 502, 503, 504, 521, 522, 524]` |
+| `httpMethodsToRetry` | `HttpMethod[]` | Http methods to retry against. <br> *Default*: `['GET', 'PUT']` |
 
 The API client can be initialized as follows:
 
-```java
-APIMATICCalculatorClient client = new APIMATICCalculatorClient.Builder()
-    .httpClientConfig(configBuilder -> configBuilder
-            .timeout(0))
-    .environment(Environment.PRODUCTION)
-    .build();
+```ts
+const client = new Client({
+  timeout: 0,
+  environment: Environment.Production,
+});
 ```
+
+## Environments
+
+The SDK can be configured to use a different environment for making API calls. Available environments are:
+
+### Fields
+
+| Name | Description |
+|  --- | --- |
+| production | **Default** Localhost |
+| environment2 | Dev |
 
 ## List of APIs
 
-* [Simple Calculator](doc/controllers/simple-calculator.md)
+* [C Sharp Credentials](doc/controllers/c-sharp-credentials.md)
+* [Git Credentials](doc/controllers/git-credentials.md)
+* [Java Credentials](doc/controllers/java-credentials.md)
+* [Php Credentials](doc/controllers/php-credentials.md)
+* [Publishing](doc/controllers/publishing.md)
+* [Publishing Profile](doc/controllers/publishing-profile.md)
+* [Publishing Profile Configuration](doc/controllers/publishing-profile-configuration.md)
+* [Python Credentials](doc/controllers/python-credentials.md)
+* [Ruby Credentials](doc/controllers/ruby-credentials.md)
+* [Type Script Credentials](doc/controllers/type-script-credentials.md)
 
 ## Classes Documentation
 
-* [Utility Classes](doc/utility-classes.md)
-* [HttpRequest](doc/http-request.md)
-* [HttpResponse](doc/http-response.md)
-* [HttpStringResponse](doc/http-string-response.md)
-* [HttpContext](doc/http-context.md)
-* [HttpBodyRequest](doc/http-body-request.md)
-* [HttpCallback Interface](doc/http-callback-interface.md)
-* [Headers](doc/headers.md)
-* [ApiException](doc/api-exception.md)
-* [Configuration Interface](doc/configuration-interface.md)
-* [HttpClientConfiguration](doc/http-client-configuration.md)
-* [HttpClientConfiguration.Builder](doc/http-client-configuration-builder.md)
+* [ApiResponse](doc/api-response.md)
+* [ApiError](doc/api-error.md)
 
