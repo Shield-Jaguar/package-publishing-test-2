@@ -1,22 +1,15 @@
 
-# HttpRequest Class
+# HttpRequest
 
-Class for creating and managing HTTP Requests.
+Represents a single Http Request.
 
-## Constructors
+## Properties
 
-| Name | Description |
-|  --- | --- |
-| `HttpRequest(HttpMethod method, StringBuilder queryUrlBuilder, Headers headers, Map<String, Object> queryParameters, List< SimpleEntry < String, Object >> parameters)` | Initializes a simple http request. |
-
-## Methods
-
-| Name | Description | Return Type |
-|  --- | --- | --- |
-| `getHttpMethod()` | HttpMethod for the http request. | `HttpMethod` |
-| `getHeaders()` | Headers for the http request. | [`Headers`](headers.md) |
-| `getQueryUrl()` | Query url for the http request. | `String` |
-| `getParameters()` | Parameters for the http request. | `List<SimpleEntry<String, Object>>` |
-| `getQueryParameters()` | Query parameters for the http request. | `Map<String, Object>` |
-| `addQueryParameter(String key, Object value)` | Add Query parameter in http request. | `void` |
+| Name | Type | Tag | Description |
+|  --- | --- | --- | --- |
+| http_method | HttpMethodEnum |  | The HTTP method of the request. |
+| query_url | String |  | The endpoint URL for the API request. |
+| headers | Hash | Optional | Request headers. |
+| parameters | Hash | Optional | Request body. |
+| context | Hash | Optional | Request context for passing meta information about the request. |
 

@@ -6,36 +6,31 @@ The following parameters are configurable for the API Client:
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | `environment` | Environment | The API environment. <br> **Default: `Environment.PRODUCTION`** |
-| `httpClientConfig` | [`ReadonlyHttpClientConfiguration`](http-client-configuration.md) | Http Client Configuration instance. |
+| `connection` | `Faraday::Connection` | The Faraday connection object passed by the SDK user for making requests |
+| `adapter` | `Faraday::Adapter` | The Faraday adapter object passed by the SDK user for performing http requests |
+| `timeout` | `Float` | The value to use for connection timeout. <br> **Default: 60** |
+| `max_retries` | `Integer` | The number of times to retry an endpoint call if it fails. <br> **Default: 0** |
+| `retry_interval` | `Float` | Pause in seconds between retries. <br> **Default: 1** |
+| `backoff_factor` | `Float` | The amount to multiply each successive retry's interval amount by in order to provide backoff. <br> **Default: 2** |
+| `retry_statuses` | `Array` | A list of HTTP statuses to retry. <br> **Default: [408, 413, 429, 500, 502, 503, 504, 521, 522, 524]** |
+| `retry_methods` | `Array` | A list of HTTP methods to retry. <br> **Default: %i[get put]** |
+| `http_callback` | `HttpCallBack` | The Http CallBack allows defining callables for pre and post API calls. |
 
 The API client can be initialized as follows:
 
-```java
-APIMATICCalculatorClient client = new APIMATICCalculatorClient.Builder()
-    .httpClientConfig(configBuilder -> configBuilder
-            .timeout(0))
-    .environment(Environment.PRODUCTION)
-    .build();
+```ruby
+client = ApimaticCalculator::Client.new(
+  environment: Environment::PRODUCTION,
+)
 ```
 
-## APIMATIC CalculatorClient Class
+## APIMATIC Calculator Client
 
 The gateway for the SDK. This class acts as a factory for the Controllers and also holds the configuration of the SDK.
 
-### Controllers
+## Controllers
 
-| Name | Description | Return Type |
-|  --- | --- | --- |
-| `getSimpleCalculatorController()` | Provides access to SimpleCalculator controller. | `SimpleCalculatorController` |
-
-### Methods
-
-| Name | Description | Return Type |
-|  --- | --- | --- |
-| `shutdown()` | Shutdown the underlying HttpClient instance. | `void` |
-| `getEnvironment()` | Current API environment. | `Environment` |
-| `getHttpClient()` | The HTTP Client instance to use for making HTTP requests. | `HttpClient` |
-| `getHttpClientConfig()` | Http Client Configuration instance. | [`ReadonlyHttpClientConfiguration`](http-client-configuration.md) |
-| `getBaseUri(Server server)` | Get base URI by current environment | `String` |
-| `getBaseUri()` | Get base URI by current environment | `String` |
+| Name | Description |
+|  --- | --- |
+| simple_calculator | Gets SimpleCalculatorController |
 
