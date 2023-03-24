@@ -1,19 +1,13 @@
 
-# HttpResponse Class
+# HttpResponse
 
-Class to hold HTTP Response.
-
-## Constructors
-
-| Name | Description |
-|  --- | --- |
-| `HttpResponse(int code, Headers headers, InputStream rawBody)` | Constructor for HttpResponse. |
+Http response received.
 
 ## Methods
 
-| Name | Description | Return Type |
+| Name | Type | Description |
 |  --- | --- | --- |
-| `getStatusCode()` | HTTP Status code of the http response.. | `int` |
-| `getHeaders()` | Headers of the http response. | [`Headers`](headers.md) |
-| `getRawBody()` | Raw body of the http response. | `InputStream` |
+| getStatusCode() | int | The status code of the response. |
+| getHeaders() | array | Response headers. |
+| getRawBody() | string | Raw body of the response. |
 

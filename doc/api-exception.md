@@ -1,19 +1,13 @@
 
-# ApiException Class
+# ApiException
 
-This is the base class for all exceptions that represent an error response from the server.
-
-## Constructors
-
-| Name | Description |
-|  --- | --- |
-| `ApiException(String reason)` | Initialization constructor. |
-| `ApiException(String reason,` [`HttpContext`](http-context.md) `context)` | Initialization constructor. |
+Thrown when there is a network error or HTTP response status code is not okay.
 
 ## Methods
 
-| Name | Description | Return Type |
+| Name | Type | Description |
 |  --- | --- | --- |
-| `getResponseCode()` | The HTTP response code from the API request | `int` |
-| `getHeaders()` | The HTTP response body from the API request. | [`Headers`](headers.md) |
+| getHttpRequest() | [`HttpRequest`](http-request.md) | Returns the HTTP request. |
+| getHttpResponse() | ?[`HttpResponse`](http-response.md) | Returns the HTTP response. |
+| hasResponse() | bool | Is the response available? |
 

@@ -7,28 +7,31 @@ Simple calculator API hosted on APIMATIC
 
 ## Install the Package
 
-Install the SDK by adding the following dependency in your project's pom.xml file:
+Run the following command to install the package and automatically add the dependency to your composer.json file:
 
-```xml
-<dependency>
-  <groupId>io.github.shield-jaguar</groupId>
-  <artifactId>test-calculator-sdk</artifactId>
-  <version>2.0.8</version>
-</dependency>
+```php
+composer require "vendorname/projectname:4.0.3"
+```
+
+Or add it to the composer.json file manually as given below:
+
+```php
+"require": {
+    "vendorname/projectname": "4.0.3"
+}
 ```
 
 You can also view the package at:
-https://mvnrepository.com/artifact/io.github.shield-jaguar/test-calculator-sdk/2.0.8
+https://packagist.org/packages/vendorname/projectname#4.0.3
 
 ## Test the SDK
 
-The generated code and the server can be tested using automatically generated test cases.
-JUnit is used as the testing framework and test runner.
+Unit tests in this SDK can be run using PHPUnit.
 
-In Eclipse, for running the tests do the following:
+1. First install the dependencies using composer including the `require-dev` dependencies.
+2. Run `vendor\bin\phpunit --verbose` from commandline to execute tests. If you have installed PHPUnit globally, run tests using `phpunit --verbose` instead.
 
-1. Select the project APIMATICCalculatorLib from the package explorer.
-2. Select `Run -> Run as -> JUnit Test` or use `Alt + Shift + X` followed by `T` to run the Tests.
+You can change the PHPUnit test configuration in the `phpunit.xml` file.
 
 ## Initialize the API Client
 
@@ -39,16 +42,22 @@ The following parameters are configurable for the API Client:
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | `environment` | Environment | The API environment. <br> **Default: `Environment.PRODUCTION`** |
-| `httpClientConfig` | [`ReadonlyHttpClientConfiguration`](doc/http-client-configuration.md) | Http Client Configuration instance. |
+| `timeout` | `int` | Timeout for API calls in seconds.<br>*Default*: `0` |
+| `enableRetries` | `bool` | Whether to enable retries and backoff feature.<br>*Default*: `false` |
+| `numberOfRetries` | `int` | The number of retries to make.<br>*Default*: `0` |
+| `retryInterval` | `float` | The retry time interval between the endpoint calls.<br>*Default*: `1` |
+| `backOffFactor` | `float` | Exponential backoff factor to increase interval between retries.<br>*Default*: `2` |
+| `maximumRetryWaitTime` | `int` | The maximum wait time in seconds for overall retrying requests.<br>*Default*: `0` |
+| `retryOnTimeout` | `bool` | Whether to retry on request timeout.<br>*Default*: `true` |
+| `httpStatusCodesToRetry` | `array` | Http status codes to retry against.<br>*Default*: `408, 413, 429, 500, 502, 503, 504, 521, 522, 524` |
+| `httpMethodsToRetry` | `array` | Http methods to retry against.<br>*Default*: `'GET', 'PUT'` |
 
 The API client can be initialized as follows:
 
-```java
-APIMATICCalculatorClient client = new APIMATICCalculatorClient.Builder()
-    .httpClientConfig(configBuilder -> configBuilder
-            .timeout(0))
-    .environment(Environment.PRODUCTION)
-    .build();
+```php
+$client = APIMATICCalculatorLib\APIMATICCalculatorClientBuilder::init()
+    ->environment('production')
+    ->build();
 ```
 
 ## List of APIs
@@ -57,16 +66,7 @@ APIMATICCalculatorClient client = new APIMATICCalculatorClient.Builder()
 
 ## Classes Documentation
 
-* [Utility Classes](doc/utility-classes.md)
+* [ApiException](doc/api-exception.md)
 * [HttpRequest](doc/http-request.md)
 * [HttpResponse](doc/http-response.md)
-* [HttpStringResponse](doc/http-string-response.md)
-* [HttpContext](doc/http-context.md)
-* [HttpBodyRequest](doc/http-body-request.md)
-* [HttpCallback Interface](doc/http-callback-interface.md)
-* [Headers](doc/headers.md)
-* [ApiException](doc/api-exception.md)
-* [Configuration Interface](doc/configuration-interface.md)
-* [HttpClientConfiguration](doc/http-client-configuration.md)
-* [HttpClientConfiguration.Builder](doc/http-client-configuration-builder.md)
 

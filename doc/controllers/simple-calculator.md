@@ -1,7 +1,7 @@
 # Simple Calculator
 
-```java
-SimpleCalculatorController simpleCalculatorController = client.getSimpleCalculatorController();
+```php
+$simpleCalculatorController = $client->getSimpleCalculatorController();
 ```
 
 ## Class Name
@@ -13,37 +13,36 @@ SimpleCalculatorController simpleCalculatorController = client.getSimpleCalculat
 
 Calculates the expression using the specified operation.
 
-```java
-CompletableFuture<Double> getCalculateAsync(
-    final GetCalculateInput input)
+```php
+function getCalculate(array $options): float
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `operation` | [`OperationTypeEnum`](../../doc/models/operation-type-enum.md) | Template, Required | The operator to apply on the variables |
-| `x` | `double` | Query, Required | The LHS value |
-| `y` | `double` | Query, Required | The RHS value |
+| `operation` | [`string (OperationTypeEnum)`](../../doc/models/operation-type-enum.md) | Template, Required | The operator to apply on the variables |
+| `x` | `float` | Query, Required | The LHS value |
+| `y` | `float` | Query, Required | The RHS value |
 
 ## Response Type
 
-`double`
+`float`
 
 ## Example Usage
 
-```java
-GetCalculateInput getCalculateInput = new GetCalculateInput();
-getCalculateInput.setOperation(OperationTypeEnum.MULTIPLY);
-getCalculateInput.setX(222.14);
-getCalculateInput.setY(165.14);
+```php
+$collect = [];
 
+$operation = Models\OperationTypeEnum::MULTIPLY;
+$collect['operation'] = $operation;
 
-simpleCalculatorController.getCalculateAsync(getCalculateInput).thenAccept(result -> {
-    // TODO success callback handler
-}).exceptionally(exception -> {
-    // TODO failure callback handler
-    return null;
-});
+$x = 222.14;
+$collect['x'] = $x;
+
+$y = 165.14;
+$collect['y'] = $y;
+
+$result = $simpleCalculatorController->getCalculate($collect);
 ```
 
