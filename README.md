@@ -10,19 +10,19 @@ Simple calculator API hosted on APIMATIC
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```php
-composer require "vendorname/projectname:4.2.5"
+composer require "vendorname/projectname:4.2.6"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```php
 "require": {
-    "vendorname/projectname": "4.2.5"
+    "vendorname/projectname": "4.2.6"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/vendorname/projectname#4.2.5
+https://packagist.org/packages/vendorname/projectname#4.2.6
 
 ## Initialize the API Client
 
