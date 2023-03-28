@@ -10,28 +10,19 @@ Simple calculator API hosted on APIMATIC
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```php
-composer require "vendorname/projectname:4.0.4"
+composer require "vendorname/projectname:4.0.5"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```php
 "require": {
-    "vendorname/projectname": "4.0.4"
+    "vendorname/projectname": "4.0.5"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/vendorname/projectname#4.0.4
-
-## Test the SDK
-
-Unit tests in this SDK can be run using PHPUnit.
-
-1. First install the dependencies using composer including the `require-dev` dependencies.
-2. Run `vendor\bin\phpunit --verbose` from commandline to execute tests. If you have installed PHPUnit globally, run tests using `phpunit --verbose` instead.
-
-You can change the PHPUnit test configuration in the `phpunit.xml` file.
+https://packagist.org/packages/vendorname/projectname#4.0.5
 
 ## Initialize the API Client
 

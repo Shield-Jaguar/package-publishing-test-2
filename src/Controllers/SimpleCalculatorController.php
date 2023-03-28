@@ -27,15 +27,16 @@ class SimpleCalculatorController extends BaseController
      *
      * @throws ApiException Thrown if API call fails
      */
-    public function getCalculate(array $options): float
+    public function getCalculateex(array $options): float
     {
         $_reqBuilder = $this->requestBuilder(RequestMethod::GET, '/{operation}')
             ->parameters(
-                TemplateParam::init('operation', $options)
-                    ->extract('operation')
+                TemplateParam::init('operation1', $options)
+                    ->extract('operation1')
                     ->serializeBy([OperationTypeEnum::class, 'checkValue']),
                 QueryParam::init('x', $options)->extract('x'),
-                QueryParam::init('y', $options)->extract('y')
+                QueryParam::init('y', $options)->extract('y'),
+                TemplateParam::init('operation', $options)->extract('operation')
             );
 
         return $this->execute($_reqBuilder);
