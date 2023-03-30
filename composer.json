@@ -1,19 +1,14 @@
 {
-    "name": "shieldvendoername/shieldprojrectname",
-    "description": "description",
-    "type": "git",
-    "keywords": [
-        "testing"
-    ],
-    "homepage": "https://apimatic.io",
+    "name": "piyush-unique-vendor/unique-package",
+    "description": "this is a package for demo purposes",
+    "type": "library",
+    "keywords": [],
+    "homepage": "https://www.apimatic.io",
     "license": [
         "MIT"
     ],
     "authors": [
-        {
-            "name": "ShieldJaguar",
-            "email": "mujahid.khan@apimatic.io"
-        }
+        {}
     ],
     "support": {},
     "require": {
@@ -25,7 +20,8 @@
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.5",
-        "phan/phan": "5.3.1"
+        "phan/phan": "5.3.1",
+        "phpunit/phpunit": "^7.5 || ^8.5 || ^9.5"
     },
     "autoload": {
         "psr-4": {
@@ -38,6 +34,8 @@
         }
     },
     "scripts": {
+        "test": "phpunit",
+        "test-coverage": "phpunit --coverage-html=coverage",
         "lint-src": "phpcs --standard=phpcs-ruleset.xml src/",
         "lint-src-fix": "phpcbf --standard=phpcs-ruleset.xml src/",
         "lint-tests": "phpcs --standard=phpcs-ruleset.xml tests/",
