@@ -10,19 +10,19 @@ Simple calculator API hosted on APIMATIC
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```php
-composer require "piyush-unique-vendor-29/unique-package-29:1.1.32"
+composer require "piyush-unique-vendor-29/unique-package-29:1.0.0"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```php
 "require": {
-    "piyush-unique-vendor-29/unique-package-29": "1.1.32"
+    "piyush-unique-vendor-29/unique-package-29": "1.0.0"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/piyush-unique-vendor-29/unique-package-29#1.1.32
+https://packagist.org/packages/piyush-unique-vendor-29/unique-package-29#1.0.0
 
 ## Test the SDK
 
