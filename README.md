@@ -10,19 +10,19 @@ Simple calculator API hosted on APIMATIC
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```php
-composer require "shieldvendoername/shieldprojrectname:5.0.3"
+composer require "shieldvendoername/shieldprojrectname:5.0.4"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```php
 "require": {
-    "shieldvendoername/shieldprojrectname": "5.0.3"
+    "shieldvendoername/shieldprojrectname": "5.0.4"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/shieldvendoername/shieldprojrectname#5.0.3
+https://packagist.org/packages/shieldvendoername/shieldprojrectname#5.0.4
 
 ## Test the SDK
 
