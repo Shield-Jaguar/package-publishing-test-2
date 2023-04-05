@@ -9,22 +9,21 @@ $simpleCalculatorController = $client->getSimpleCalculatorController();
 `SimpleCalculatorController`
 
 
-# Get Calculateex
+# Get Calculate
 
 Calculates the expression using the specified operation.
 
 ```php
-function getCalculateex(array $options): float
+function getCalculate(array $options): float
 ```
 
 ## Parameters
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `operation1` | [`string (OperationTypeEnum)`](../../doc/models/operation-type-enum.md) | Template, Required | The operator to apply on the variables |
+| `operation` | [`string (OperationTypeEnum)`](../../doc/models/operation-type-enum.md) | Template, Required | The operator to apply on the variables |
 | `x` | `float` | Query, Required | The LHS value |
 | `y` | `float` | Query, Required | The RHS value |
-| `operation` | `string` | Template, Required | - |
 
 ## Response Type
 
@@ -35,8 +34,8 @@ function getCalculateex(array $options): float
 ```php
 $collect = [];
 
-$operation1 = Models\OperationTypeEnum::MULTIPLY;
-$collect['operation1'] = $operation1;
+$operation = Models\OperationTypeEnum::MULTIPLY;
+$collect['operation'] = $operation;
 
 $x = 222.14;
 $collect['x'] = $x;
@@ -44,9 +43,6 @@ $collect['x'] = $x;
 $y = 165.14;
 $collect['y'] = $y;
 
-$operation = 'operation4';
-$collect['operation'] = $operation;
-
-$result = $simpleCalculatorController->getCalculateex($collect);
+$result = $simpleCalculatorController->getCalculate($collect);
 ```
 

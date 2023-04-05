@@ -10,19 +10,28 @@ Simple calculator API hosted on APIMATIC
 Run the following command to install the package and automatically add the dependency to your composer.json file:
 
 ```php
-composer require "shieldvendoername/shieldprojrectname:4.5.7"
+composer require "shieldvendoername/shieldprojrectname:5.0.2"
 ```
 
 Or add it to the composer.json file manually as given below:
 
 ```php
 "require": {
-    "shieldvendoername/shieldprojrectname": "4.5.7"
+    "shieldvendoername/shieldprojrectname": "5.0.2"
 }
 ```
 
 You can also view the package at:
-https://packagist.org/packages/shieldvendoername/shieldprojrectname#4.5.7
+https://packagist.org/packages/shieldvendoername/shieldprojrectname#5.0.2
+
+## Test the SDK
+
+Unit tests in this SDK can be run using PHPUnit.
+
+1. First install the dependencies using composer including the `require-dev` dependencies.
+2. Run `vendor\bin\phpunit --verbose` from commandline to execute tests. If you have installed PHPUnit globally, run tests using `phpunit --verbose` instead.
+
+You can change the PHPUnit test configuration in the `phpunit.xml` file.
 
 ## Initialize the API Client
 
